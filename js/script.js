@@ -515,9 +515,9 @@ Images links (uploaded):
 ${linksText}`;
     }
 
-    // --- BUTTON TRIGGER LOGIC ACTIONS ---
+    // --- SMART MOBILE-FRIENDLY BUTTON ACTIONS ---
 
-    // A. MESSENGER TRIGGER
+    // A. MESSENGER TRIGGER (Mobile & Desktop Optimized)
     if (messengerBtn) {
         messengerBtn.addEventListener('click', async function() {
             if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -532,11 +532,25 @@ ${linksText}`;
             messengerBtn.textContent = originalText;
             messengerBtn.disabled = false;
 
-            window.open(`https://m.me/CURTAINMAKER07?text=${encodeURIComponent(message)}`, '_blank');
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // Sa cellphone: Kokopyahin ang text para i-paste ng user, at bubuksan ang Messenger App
+                navigator.clipboard.writeText(message).then(() => {
+                    alert("Form details copied! Opening Messenger... Just PASTE and SEND in the chat.");
+                    window.location.href = "https://m.me/CURTAINMAKER07";
+                }).catch(() => {
+                    // Back-up kung ayaw ng clipboard lock sa ibang phone browser
+                    window.location.href = `https://m.me/CURTAINMAKER07?text=${encodeURIComponent(message)}`;
+                });
+            } else {
+                // Sa Desktop/Laptop: Direct tab link gaya ng dati
+                window.open(`https://m.me/CURTAINMAKER07?text=${encodeURIComponent(message)}`, '_blank');
+            }
         });
     }
 
-    // B. SMS TRIGGER
+    // B. SMS TRIGGER (Standardization for Android & iOS Phones)
     if (smsBtn) {
         smsBtn.addEventListener('click', async function() {
             if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -551,11 +565,16 @@ ${linksText}`;
             smsBtn.textContent = originalText;
             smsBtn.disabled = false;
 
-            window.location.href = `sms:+639123456789?body=${encodeURIComponent(message)}`;
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            // Ang iOS (iPhone) ay gumagamit ng '&' habang ang Android at Desktop ay '?' o ';'
+            const smsSeparator = isIOS ? '&' : '?';
+            
+            // PALITAN ANG IYONG NUMBER SA BABA
+            window.location.href = `sms:+639123456789${smsSeparator}body=${encodeURIComponent(message)}`;
         });
     }
 
-    // C. GMAIL WEB TRIGGER
+    // C. GMAIL / EMAIL TRIGGER (Auto-Detects Desktop Browser vs Mobile Email App)
     if (emailBtn) {
         emailBtn.addEventListener('click', async function() {
             if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -567,13 +586,21 @@ ${linksText}`;
             const linksText = await uploadAllImages();
             const message = generateMessageText(linksText);
             
-            const myEmail = "mhersanjohnsalenga@gmail.com"; // <-- PALITAN MO NG EMAIL MO
+            const myEmail = "IYONG_EMAIL@gmail.com"; // <-- PALITAN MO NG EMAIL MO
             const subject = `[New Estimate Request] ${val('q-name') || 'Client'}`;
             
             emailBtn.textContent = originalText;
             emailBtn.disabled = false;
             
-            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${myEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`, '_blank');
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // Sa Phone: Awtomatikong bubuksan ang Gmail App o Default Mail App gamit ang mailto
+                window.location.href = `mailto:${myEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+            } else {
+                // Sa Laptop: Diretsong bubuksan ang Gmail Web Compose Tab gaya ng gusto mo
+                window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${myEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`, '_blank');
+            }
         });
     }
 });
