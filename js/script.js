@@ -604,3 +604,48 @@ ${linksText}`;
         });
     }
 });
+
+
+
+/* ---------------------------------------------------------------------
+     15. 
+SERVICES LIGHTBOX (Image + Video Support)
+  --------------------------------------------------------------------- */
+
+function openServicesLightbox(element) {
+  const lightbox = document.getElementById('services-lightbox');
+  const container = document.getElementById('lightbox-media-container');
+  
+  if (element.tagName.toLowerCase() === 'video') {
+    const videoSrc = element.getAttribute('src');
+    container.innerHTML = `<video src="${videoSrc}" controls autoplay playsinline style="max-width: 100%; max-height: 85vh; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); background: #000;"></video>`;
+  } else {
+    const imgSrc = element.getAttribute('src');
+    const imgAlt = element.getAttribute('alt') || 'Service Spec Sheet';
+    container.innerHTML = `<img src="${imgSrc}" alt="${imgAlt}" style="max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,0.6);" />`;
+  }
+  
+  lightbox.style.display = 'flex';
+  setTimeout(() => { lightbox.style.opacity = '1'; }, 15);
+  document.body.style.overflow = 'hidden';
+}
+
+function closeServicesLightbox() {
+  const lightbox = document.getElementById('services-lightbox');
+  const container = document.getElementById('lightbox-media-container');
+  
+  lightbox.style.opacity = '0';
+  setTimeout(() => {
+    lightbox.style.display = 'none';
+    container.innerHTML = ''; 
+    document.body.style.overflow = ''; 
+  }, 300);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeServicesLightbox();
+});
+
+
+
+

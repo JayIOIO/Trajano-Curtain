@@ -147,7 +147,8 @@
   <main id="main">
     <!-- ============ HERO ============ -->
     <section id="hero" class="relative h-[100svh] min-h-[640px] w-full overflow-hidden" style="margin-top: 20px;">
-      <img src="assets/images/backgrounds/herobackground.png" alt="Elegant high-ceiling living room with flowing floor-to-ceiling curtains"
+      <img src="assets/images/backgrounds/herobackground.png"
+        alt="Elegant high-ceiling living room with flowing floor-to-ceiling curtains"
         class="absolute inset-0 w-full h-full object-cover" fetchpriority="high" />
       <div class="absolute inset-0 hero-scrim"></div>
 
@@ -250,15 +251,17 @@
         </div>
 
         <div class="collage reveal-on-scroll">
-          <img src="assets/images/showrooms/showroom.jpg" alt="Close-up of tailored curtain pleats in a sunlit room" class="collage-main"
-            loading="lazy" width="700" height="850" />
-          <img src="assets/images/showrooms/showroom12.jpg" alt="Neutral roman shade in a minimalist Philippine home" class="collage-small"
-            loading="lazy" width="380" height="460" />
+          <img src="assets/images/showrooms/showroom.jpg" alt="Close-up of tailored curtain pleats in a sunlit room"
+            class="collage-main" loading="lazy" width="700" height="850" />
+          <img src="assets/images/showrooms/showroom12.jpg" alt="Neutral roman shade in a minimalist Philippine home"
+            class="collage-small" loading="lazy" width="380" height="460" />
         </div>
       </div>
     </section>
 
-    <!-- ============ SERVICES ============ -->
+    <!-- ==========================================================================
+     SERVICES SECTION WITH BUILT-IN LIGHTBOX POP-UP
+     ========================================================================== -->
     <section id="services" class="section-pad bg-paper">
       <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div class="max-w-2xl mx-auto flex flex-col items-center text-center reveal-on-scroll">
@@ -272,124 +275,201 @@
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16" id="services-grid">
-          <!-- cards injected via markup, static content -->
-          <article class="service-card reveal-on-scroll">
-            <img src="assets/images/specialty/customcurtain.jpg" alt="Custom made-to-order curtains in a living room" loading="lazy" width="800"
-              height="560" />
-            <div class="service-body">
-              <h3>Custom Curtains</h3>
-              <p>
-                Hand-measured, fully bespoke panels tailored to your exact
-                windows and interior style.
+        <!-- 3-COLUMNS FORCED LAYOUT -->
+        <div
+          style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; margin-top: 4rem !important; width: 100% !important;"
+          id="services-grid">
+
+          <!-- Card 1 -->
+          <article class="service-card reveal-on-scroll"
+            style="width: 100% !important; min-width: 0 !important; border-radius: 10px !important;">
+            <img src="assets/images/specialty/customcurtain.jpg" alt="Custom made-to-order curtains in a living room"
+              loading="lazy" width="800" height="560" onclick="openServicesLightbox(this)"
+              style="width: 100% !important; height: auto !important; aspect-ratio: 800 / 560 !important; object-fit: cover !important; cursor: pointer;" />
+            <div class="service-body" style="padding: 10px 6px 12px !important;">
+              <h3 style="font-size: clamp(0.7rem, 2vw, 1.25rem) !important; margin-bottom: 4px !important;">Custom
+                Curtains</h3>
+              <p style="font-size: clamp(0.6rem, 1.5vw, 0.93rem) !important; line-height: 1.3 !important;">
+                Hand-measured, fully bespoke panels tailored to your exact windows and interior style.
               </p>
-              <a href="#quote" class="service-link">Learn More &rarr;</a>
+              <a href="#quote" class="service-link"
+                style="font-size: clamp(0.55rem, 1.5vw, 0.85rem) !important; margin-top: 6px !important;">Learn More
+                &rarr;</a>
             </div>
           </article>
 
-          <article class="service-card reveal-on-scroll">
-            <img src="assets/images/specialty/blackoutcurtain.jpg" alt="Blackout curtains in a dark elegant bedroom" loading="lazy" width="800"
-              height="560" />
-            <div class="service-body">
-              <h3>Blackout Curtains</h3>
-              <p>
-                Dense, light-blocking fabrication for bedrooms, home theaters,
-                and hotel suites.
+          <!-- Card 2 -->
+          <article class="service-card reveal-on-scroll"
+            style="width: 100% !important; min-width: 0 !important; border-radius: 10px !important;">
+            <img src="assets/images/specialty/blackoutcurtain.jpg" alt="Blackout curtains in a dark elegant bedroom"
+              loading="lazy" width="800" height="560" onclick="openServicesLightbox(this)"
+              style="width: 100% !important; height: auto !important; aspect-ratio: 800 / 560 !important; object-fit: cover !important; cursor: pointer;" />
+            <div class="service-body" style="padding: 10px 6px 12px !important;">
+              <h3 style="font-size: clamp(0.7rem, 2vw, 1.25rem) !important; margin-bottom: 4px !important;">Blackout
+                Curtains</h3>
+              <p style="font-size: clamp(0.6rem, 1.5vw, 0.93rem) !important; line-height: 1.3 !important;">
+                Dense, light-blocking fabrication for bedrooms, home theaters, and hotel suites.
               </p>
-              <a href="#quote" class="service-link">Learn More &rarr;</a>
+              <a href="#quote" class="service-link"
+                style="font-size: clamp(0.55rem, 1.5vw, 0.85rem) !important; margin-top: 6px !important;">Learn More
+                &rarr;</a>
             </div>
           </article>
 
-          <article class="service-card reveal-on-scroll">
-            <img src="assets/images/living-room/sheercurtain.jpg" alt="Sheer curtains diffusing natural light" loading="lazy" width="800"
-              height="560" />
-            <div class="service-body">
-              <h3>Sheer Curtains</h3>
-              <p>
-                Airy, translucent fabrics that soften daylight while
-                preserving your view.
+          <!-- Card 3 -->
+          <article class="service-card reveal-on-scroll"
+            style="width: 100% !important; min-width: 0 !important; border-radius: 10px !important;">
+            <img src="assets/images/living-room/sheercurtain.jpg" alt="Sheer curtains diffusing natural light"
+              loading="lazy" width="800" height="560" onclick="openServicesLightbox(this)"
+              style="width: 100% !important; height: auto !important; aspect-ratio: 800 / 560 !important; object-fit: cover !important; cursor: pointer;" />
+            <div class="service-body" style="padding: 10px 6px 12px !important;">
+              <h3 style="font-size: clamp(0.7rem, 2vw, 1.25rem) !important; margin-bottom: 4px !important;">Sheer
+                Curtains</h3>
+              <p style="font-size: clamp(0.6rem, 1.5vw, 0.93rem) !important; line-height: 1.3 !important;">
+                Airy, translucent fabrics that soften daylight while preserving your view.
               </p>
-              <a href="#quote" class="service-link">Learn More &rarr;</a>
-            </div>
-          </article>
-          <article class="service-card reveal-on-scroll">
-            <img src="assets/images/blinds-shades/windowblinds.jpg" alt="Window blinds in a modern home" loading="lazy" width="800" height="560" />
-            <div class="service-body">
-              <h3>Window Blinds</h3>
-              <p>
-                Adjustable blinds for precise light control and privacy in any
-                room.
-              </p>
-              <a href="#quote" class="service-link">Learn More &rarr;</a>
+              <a href="#quote" class="service-link"
+                style="font-size: clamp(0.55rem, 1.5vw, 0.85rem) !important; margin-top: 6px !important;">Learn More
+                &rarr;</a>
             </div>
           </article>
 
-          <article class="service-card reveal-on-scroll">
-            <img src="assets/images/living-room/sfoldcurtain.png" alt="S-fold curtains against high ceiling window" loading="lazy" width="800"
-              height="560" />
-            <div class="service-body">
-              <h3>S-Fold Curtains</h3>
-              <p>
-                Clean, wave-like folds for a contemporary, tailored silhouette
-                on any track.
+          <!-- Card 4 -->
+          <article class="service-card reveal-on-scroll"
+            style="width: 100% !important; min-width: 0 !important; border-radius: 10px !important;">
+            <img src="assets/images/blinds-shades/windowblinds.jpg" alt="Window blinds in a modern home" loading="lazy"
+              width="800" height="560" onclick="openServicesLightbox(this)"
+              style="width: 100% !important; height: auto !important; aspect-ratio: 800 / 560 !important; object-fit: cover !important; cursor: pointer;" />
+            <div class="service-body" style="padding: 10px 6px 12px !important;">
+              <h3 style="font-size: clamp(0.7rem, 2vw, 1.25rem) !important; margin-bottom: 4px !important;">Window
+                Blinds</h3>
+              <p style="font-size: clamp(0.6rem, 1.5vw, 0.93rem) !important; line-height: 1.3 !important;">
+                Adjustable blinds for precise light control and privacy in any room.
               </p>
-              <a href="#quote" class="service-link">Learn More &rarr;</a>
+              <a href="#quote" class="service-link"
+                style="font-size: clamp(0.55rem, 1.5vw, 0.85rem) !important; margin-top: 6px !important;">Learn More
+                &rarr;</a>
             </div>
           </article>
 
-          <article class="service-card reveal-on-scroll">
-            <img src="assets/images/blinds-shades/romanshade.jpg" alt="Roman shades in a bright minimalist kitchen" loading="lazy" width="800"
-              height="560" />
-            <div class="service-body">
-              <h3>Roman Shades</h3>
-              <p>
-                Structured fabric shades that fold crisply for a refined,
-                architectural look.
+          <!-- Card 5 -->
+          <article class="service-card reveal-on-scroll"
+            style="width: 100% !important; min-width: 0 !important; border-radius: 10px !important;">
+            <img src="assets/images/living-room/sfoldcurtain.png" alt="S-fold curtains against high ceiling window"
+              loading="lazy" width="800" height="560" onclick="openServicesLightbox(this)"
+              style="width: 100% !important; height: auto !important; aspect-ratio: 800 / 560 !important; object-fit: cover !important; cursor: pointer;" />
+            <div class="service-body" style="padding: 10px 6px 12px !important;">
+              <h3 style="font-size: clamp(0.7rem, 2vw, 1.25rem) !important; margin-bottom: 4px !important;">S-Fold
+                Curtains</h3>
+              <p style="font-size: clamp(0.6rem, 1.5vw, 0.93rem) !important; line-height: 1.3 !important;">
+                Clean, wave-like folds for a contemporary, tailored silhouette on any track.
               </p>
-              <a href="#quote" class="service-link">Learn More &rarr;</a>
+              <a href="#quote" class="service-link"
+                style="font-size: clamp(0.55rem, 1.5vw, 0.85rem) !important; margin-top: 6px !important;">Learn More
+                &rarr;</a>
             </div>
           </article>
 
-          <article class="service-card reveal-on-scroll">
-            <img src="assets/images/blinds-shades/zebrablind.jpg" alt="Roller blinds in a modern condominium" loading="lazy" width="800"
-              height="560" />
-            <div class="service-body">
-              <h3>Roller &amp; Zebra Blinds</h3>
-              <p>
-                Low-profile, motorization-ready blinds for condos, offices,
-                and modern interiors.
+          <!-- Card 6 -->
+          <article class="service-card reveal-on-scroll"
+            style="width: 100% !important; min-width: 0 !important; border-radius: 10px !important;">
+            <img src="assets/images/blinds-shades/romanshade.jpg" alt="Roman shades in a bright minimalist kitchen"
+              loading="lazy" width="800" height="560" onclick="openServicesLightbox(this)"
+              style="width: 100% !important; height: auto !important; aspect-ratio: 800 / 560 !important; object-fit: cover !important; cursor: pointer;" />
+            <div class="service-body" style="padding: 10px 6px 12px !important;">
+              <h3 style="font-size: clamp(0.7rem, 2vw, 1.25rem) !important; margin-bottom: 4px !important;">Roman Shades
+              </h3>
+              <p style="font-size: clamp(0.6rem, 1.5vw, 0.93rem) !important; line-height: 1.3 !important;">
+                Structured fabric shades that fold crisply for a refined, architectural look.
               </p>
-              <a href="#quote" class="service-link">Learn More &rarr;</a>
+              <a href="#quote" class="service-link"
+                style="font-size: clamp(0.55rem, 1.5vw, 0.85rem) !important; margin-top: 6px !important;">Learn More
+                &rarr;</a>
             </div>
           </article>
 
-          <article class="service-card reveal-on-scroll">
-            <img src="assets/images/specialty/swagcurtain.png" alt="Swag curtains draped over a formal window" loading="lazy" width="800"
-              height="560" />
-            <div class="service-body">
-              <h3>Swag Curtains</h3>
-              <p>
-                Classic draped valances for formal dining rooms and
-                heritage-style homes.
+          <!-- Card 7 -->
+          <article class="service-card reveal-on-scroll"
+            style="width: 100% !important; min-width: 0 !important; border-radius: 10px !important;">
+            <img src="assets/images/blinds-shades/zebrablind.jpg" alt="Roller blinds in a modern condominium"
+              loading="lazy" width="800" height="560" onclick="openServicesLightbox(this)"
+              style="width: 100% !important; height: auto !important; aspect-ratio: 800 / 560 !important; object-fit: cover !important; cursor: pointer;" />
+            <div class="service-body" style="padding: 10px 6px 12px !important;">
+              <h3 style="font-size: clamp(0.7rem, 2vw, 1.25rem) !important; margin-bottom: 4px !important;">Roller &amp;
+                Zebra Blinds</h3>
+              <p style="font-size: clamp(0.6rem, 1.5vw, 0.93rem) !important; line-height: 1.3 !important;">
+                Low-profile, motorization-ready blinds for condos, offices, and modern interiors.
               </p>
-              <a href="#quote" class="service-link">Learn More &rarr;</a>
+              <a href="#quote" class="service-link"
+                style="font-size: clamp(0.55rem, 1.5vw, 0.85rem) !important; margin-top: 6px !important;">Learn More
+                &rarr;</a>
             </div>
           </article>
-          <article class="service-card reveal-on-scroll">
-            <video src="assets/videos/0708.mp4" alt="Motorized curtains in a luxury home" loading="lazy" width="800" height="560"
-              controls></video>
-            <div class="service-body">
-              <h3>Motorized Curtains</h3>
-              <p>
-                Automated curtain systems for high ceilings, hard-to-reach
-                windows, and smart homes.
+
+          <!-- Card 8 -->
+          <article class="service-card reveal-on-scroll"
+            style="width: 100% !important; min-width: 0 !important; border-radius: 10px !important;">
+            <img src="assets/images/specialty/swagcurtain.png" alt="Swag curtains draped over a formal window"
+              loading="lazy" width="800" height="560" onclick="openServicesLightbox(this)"
+              style="width: 100% !important; height: auto !important; aspect-ratio: 800 / 560 !important; object-fit: cover !important; cursor: pointer;" />
+            <div class="service-body" style="padding: 10px 6px 12px !important;">
+              <h3 style="font-size: clamp(0.7rem, 2vw, 1.25rem) !important; margin-bottom: 4px !important;">Swag
+                Curtains</h3>
+              <p style="font-size: clamp(0.6rem, 1.5vw, 0.93rem) !important; line-height: 1.3 !important;">
+                Classic draped valances for formal dining rooms and heritage-style homes.
               </p>
-              <a href="#quote" class="service-link">Learn More &rarr;</a>
+              <a href="#quote" class="service-link"
+                style="font-size: clamp(0.55rem, 1.5vw, 0.85rem) !important; margin-top: 6px !important;">Learn More
+                &rarr;</a>
             </div>
           </article>
+
+          <!-- Card 9 (Video Card with Padding-Top Hack) -->
+          <article class="service-card reveal-on-scroll"
+            style="width: 100% !important; min-width: 0 !important; border-radius: 10px !important; display: block !important;">
+            <div
+              style="width: 100% !important; height: 0 !important; padding-top: 70% !important; position: relative !important; overflow: hidden !important; background: #000 !important;">
+              <video src="assets/videos/0708.mp4" preload="metadata" playsinline webkit-playsinline muted loop autoplay
+                onclick="openServicesLightbox(this)"
+                style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; margin: 0 !important; padding: 0 !important; cursor: pointer;">
+              </video>
+            </div>
+            <div class="service-body" style="padding: 10px 6px 12px !important;">
+              <h3 style="font-size: clamp(0.7rem, 2vw, 1.25rem) !important; margin-bottom: 4px !important;">Motorized
+                Curtains</h3>
+              <p style="font-size: clamp(0.6rem, 1.5vw, 0.93rem) !important; line-height: 1.3 !important;">
+                Automated curtain systems for high ceilings, hard-to-reach windows, and smart homes.
+              </p>
+              <a href="#quote" class="service-link"
+                style="font-size: clamp(0.55rem, 1.5vw, 0.85rem) !important; margin-top: 6px !important;">Learn More
+                &rarr;</a>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
+
+    <!-- ==========================================================================
+     LIGHTBOX POP-UP BACKEND STRUCTURE & LOGIC
+     ========================================================================== -->
+    <div id="services-lightbox"
+      style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 99999; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; box-sizing: border-box; padding: 20px;"
+      onclick="closeServicesLightbox()">
+
+      <!-- Close (&times;) Button -->
+      <button
+        style="position: absolute; top: 20px; right: 25px; background: none; border: none; color: #fff; font-size: 38px; cursor: pointer; font-family: Arial, sans-serif; z-index: 100000; line-height: 1;"
+        onclick="closeServicesLightbox()">&times;</button>
+
+      <!-- Main Display Container -->
+      <div id="lightbox-media-container"
+        style="max-width: 90%; max-height: 85vh; display: flex; align-items: center; justify-content: center;"
+        onclick="event.stopPropagation()">
+        <!-- Media gets dynamically injected here -->
+      </div>
+    </div>
+
 
     <!-- ============ PORTFOLIO ============ -->
     <section id="portfolio" class="section-pad">
@@ -405,25 +485,22 @@
           <button class="filter-btn is-active" data-filter="all">
             Show All
           </button>
-          <button class="filter-btn" data-filter="residential">
-            Residential
+          <button class="filter-btn" data-filter="living-room">
+            Living Room
           </button>
-          <button class="filter-btn" data-filter="commercial">
-            Commercial
+          <button class="filter-btn" data-filter="bedroom">
+            Bedroom
           </button>
-          <button class="filter-btn" data-filter="high-ceiling">
-            High Ceiling
+          <button class="filter-btn" data-filter="sheer">
+            Sheer Curtains
           </button>
-          <button class="filter-btn" data-filter="blinds">Blinds</button>
-          <button class="filter-btn" data-filter="roman">Roman Shades</button>
-          <button class="filter-btn" data-filter="luxury">
-            Luxury Homes
+          <button class="filter-btn" data-filter="motorized">
+            Motorized / Blinds
           </button>
-          <button class="filter-btn" data-filter="hotels">Hotels</button>
         </div>
 
         <div class="masonry" id="portfolio-grid">
-          <figure class="masonry-item tall" data-cat="residential custom layered" data-index="0">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="0">
             <img src="assets/images/living-room/your-living-room-image.jpg"
               alt="Custom layered curtains and sheers installed in a classic residential living room" loading="lazy"
               width="900" height="900" />
@@ -433,7 +510,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential luxury floor-to-ceiling" data-index="1">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="1">
             <img src="assets/images/living-room/floor-to-ceiling-curtains.jpg"
               alt="Floor-to-ceiling custom curtains: brown blackout drapes with S-fold sheer curtains on large glass windows"
               loading="lazy" />
@@ -442,7 +519,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential premium layered" data-index="2">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="2">
             <img src="assets/images/specialty/taupe-layered-curtains.jpg"
               alt="Premium layered curtains: taupe blackout drapes with white S-fold sheers, custom pleat finish"
               loading="lazy" />
@@ -451,7 +528,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential luxury high-ceiling" data-index="3">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="3">
             <img src="assets/images/living-room/double-height-yellow-curtains.jpg"
               alt="Double-height floor-to-ceiling curtains: golden yellow drapes with white sheers in a grand luxury living room"
               loading="lazy" />
@@ -460,7 +537,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item" data-cat="residential bedroom canopy" data-index="4">
+          <figure class="masonry-item" data-cat="bedroom sheer" data-index="4">
             <img src="assets/images/bedroom/bedroom-canopy-sheers.jpg"
               alt="Custom white sheer canopy curtains for bedroom bed frame, modern private enclosure" loading="lazy" />
             <figcaption>
@@ -468,7 +545,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential luxury double-height" data-index="5">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="5">
             <img src="assets/images/specialty/ultra-high-ceiling-curtains.jpg"
               alt="Ultra tall floor-to-ceiling curtains: light gray drapes + S-fold sheers in a modern double-volume living area"
               loading="lazy" />
@@ -477,17 +554,17 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential blinds kitchen" data-index="6">
+          <figure class="masonry-item tall" data-cat="living-room motorized" data-index="6">
             <img src="assets/images/kitchen/kitchen-roller-blind.jpg"
               alt="Smooth light-colored roller blind installed in a modern luxury kitchen, compact and easy to maintain"
               loading="lazy" />
             <figcaption>
               <span>Modern Kitchen</span><small>Roller Blind &middot; Moisture-Resistant &middot;
-                Residential</small>
+                Living Room</small>
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential luxury showcase" data-index="7">
+          <figure class="masonry-item tall" data-cat="living-room luxury showcase" data-index="7">
             <video src="assets/videos/curtain-installation-showcase.mp4" autoplay muted loop playsinline loading="lazy">
               Your browser does not support the video tag.
             </video>
@@ -496,7 +573,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential roman-blind layered" data-index="8">
+          <figure class="masonry-item tall" data-cat="bedroom motorized sheer" data-index="8">
             <img src="assets/images/specialty/study-room-roman-blind.png"
               alt="Modern room with Roman blind, beige blackout drapes and white S-fold sheers, clean lighting control"
               loading="lazy" />
@@ -506,7 +583,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential roman-blind premium" data-index="9">
+          <figure class="masonry-item tall" data-cat="motorized" data-index="9">
             <img src="assets/images/blinds-shades/stairwell-roman-blind.jpg"
               alt="Premium linen-texture Roman blind in neutral taupe, installed beside glass staircase and luxury chandelier"
               loading="lazy" />
@@ -527,7 +604,7 @@
 
 
 
-          <figure class="masonry-item tall" data-cat="residential" data-index="12">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="12">
             <img src="assets/images/living-room/luxury-classic-foyer.jpg"
               alt="Classic gold layered curtains with valance and sheer in a grand stairwell" loading="lazy" />
             <figcaption>
@@ -536,7 +613,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential" data-index="13">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="13">
             <img src="assets/images/specialty/classic-grey-drapes-valance.jpg"
               alt="Elegant traditional curtains with decorative valance, grey drapes and fringed sheer panels"
               loading="lazy" />
@@ -546,7 +623,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential" data-index="14">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="14">
             <img src="assets/images/specialty/two-tone-terracotta-beige-curtains.jpg"
               alt="Modern layered curtains: terracotta and beige blackout drapes with white S-fold sheers along a long corridor"
               loading="lazy" />
@@ -556,7 +633,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential" data-index="15">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="15">
             <img src="assets/images/specialty/ultra-high-double-volume.jpg"
               alt="Full-height beige drapes and white S-fold sheers in a double-height living room with modern chandelier"
               loading="lazy" />
@@ -566,7 +643,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential" data-index="16">
+          <figure class="masonry-item tall" data-cat="living-room sheer" data-index="16">
             <img src="assets/images/specialty/royal-blue-gold-valance.jpg"
               alt="Luxury living room with royal blue velvet drapes, white S-fold sheers, and ornate gold carved valance"
               loading="lazy" />
@@ -577,7 +654,7 @@
           </figure>
 
 
-          <figure class="masonry-item tall" data-cat="residential dining layered" data-index="11">
+          <figure class="masonry-item tall" data-cat="residential dining sheer" data-index="11">
             <img src="assets/images/living-room/dining-room-gray-curtains.jpg"
               alt="Modern dining area with gray blackout curtains and white S-fold sheers, neat and elegant"
               loading="lazy" />
@@ -587,7 +664,8 @@
             </figcaption>
           </figure>
           <figure class="masonry-item tall" data-cat="residential motorized" data-index="17">
-            <video src="assets/videos/motorized-automatic-double-height.mp4" autoplay muted loop playsinline loading="lazy">
+            <video src="assets/videos/motorized-automatic-double-height.mp4" autoplay muted loop playsinline
+              loading="lazy">
               Your browser does not support the video format.
             </video>
             <figcaption>
@@ -596,7 +674,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="blinds residential" data-index="18">
+          <figure class="masonry-item tall" data-cat="motorized residential sheer" data-index="18">
             <img src="assets/images/blinds-shades/korean-vertical-sheer-blinds.jpg"
               alt="Corner window installation of white Korean vertical sheer blinds in modern living room"
               loading="lazy" />
@@ -606,7 +684,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential" data-index="19">
+          <figure class="masonry-item tall" data-cat="residential sheer" data-index="19">
             <img src="assets/images/specialty/pink-velvet-gold-pelmet.jpg"
               alt="Bedroom window with soft pink velvet drapes, white sheer curtains and ornate gold carved pelmet"
               loading="lazy" />
@@ -618,7 +696,7 @@
 
 
 
-          <figure class="masonry-item tall" data-cat="residential" data-index="21">
+          <figure class="masonry-item tall" data-cat="residential sheer" data-index="21">
             <img src="assets/images/specialty/two-tone-brown-gold-pelmet.jpg"
               alt="Window with two-tone brown and gold drapes, white sheer curtains, and custom curved pelmet"
               loading="lazy" />
@@ -628,7 +706,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item" data-cat="blinds residential" data-index="22">
+          <figure class="masonry-item" data-cat="motorized residential" data-index="22">
             <img src="assets/images/blinds-shades/korean-combi-zebra-blinds.jpg"
               alt="Warm beige Korean combi zebra blinds in a modern bedroom, adjustable light control" loading="lazy" />
             <figcaption>
@@ -638,7 +716,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential blinds" data-index="23">
+          <figure class="masonry-item tall" data-cat="motorized sheer" data-index="23">
             <img src="assets/images/living-room/modern-living-curtains-combi-blinds.jpg"
               alt="Cozy living room with beige floor-length curtains, white sheers, and Korean combi blinds"
               loading="lazy" />
@@ -648,7 +726,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential" data-index="24">
+          <figure class="masonry-item tall" data-cat="residential sheer" data-index="24">
             <img src="assets/images/living-room/grand-luxury-double-height-hall.jpg"
               alt="Grand double-height living room with full-length golden beige drapes and white sheer curtains"
               loading="lazy" />
@@ -658,7 +736,7 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item tall" data-cat="residential" data-index="25">
+          <figure class="masonry-item tall" data-cat="residential sheer bedroom" data-index="25">
             <img src="assets/images/bedroom/blush-pink-sfold-bedroom-curtains.jpg"
               alt="Bedroom with blush pink S-fold blackout curtains and white sheer curtains" loading="lazy" />
             <figcaption>
@@ -667,9 +745,9 @@
             </figcaption>
           </figure>
 
-          <figure class="masonry-item" data-cat="blinds residential" data-index="26">
-            <img src="assets/images/kitchen/kitchen-custom-roman-blind.jpg" alt="Elegant taupe Roman blind with dark trim above kitchen sink"
-              loading="lazy" />
+          <figure class="masonry-item" data-cat="motorized residential" data-index="26">
+            <img src="assets/images/kitchen/kitchen-custom-roman-blind.jpg"
+              alt="Elegant taupe Roman blind with dark trim above kitchen sink" loading="lazy" />
             <figcaption>
               <span>Custom Kitchen Roman Blind</span>
               <small>Water-Resistant Fabric • Clean Lines • Space-Saving</small>
@@ -706,10 +784,11 @@
         </div>
 
         <div class="ba-slider reveal-on-scroll" id="ba-slider">
-          <img src="assets/images/bedroom/modern-neutral-bedroom-curtains.jpg" alt="Bare window before curtain installation"
-            class="ba-img ba-before" />
+          <img src="assets/images/bedroom/modern-neutral-bedroom-curtains.jpg"
+            alt="Bare window before curtain installation" class="ba-img ba-before" />
           <div class="ba-after-wrap" id="ba-after-wrap">
-            <img src="assets/images/bedroom/before1.png" alt="Same window after custom curtain installation" class="ba-img ba-after" />
+            <img src="assets/images/bedroom/before1.png" alt="Same window after custom curtain installation"
+              class="ba-img ba-after" />
           </div>
           <div class="ba-handle" id="ba-handle">
             <span class="ba-handle-grip">&#10094;&#10095;</span>
@@ -1118,32 +1197,35 @@
                 placeholder="Tell us about your rooms, style preference, or anything else we should know."></textarea>
             </div>
             <div class="form-field mt-4">
-  <label for="q-photos" class="block text-sm font-bold text-white mb-1">📸 Upload Project Photos (Add items one by one)</label>
-  <input type="file" id="q-photos" accept="image/*" class="w-full text-white bg-black/20 p-2 rounded border border-white/20" />
-  
-  <!-- Dito visually mag-ii-stack ang mga pangalan ng larawan na napili na nila -->
-  <div id="file-list" class="mt-2 text-sm text-gray-300 space-y-1"></div>
-</div>
+              <label for="q-photos" class="block text-sm font-bold text-white mb-1">📸 Upload Project Photos (Add items
+                one by one)</label>
+              <input type="file" id="q-photos" accept="image/*"
+                class="w-full text-white bg-black/20 p-2 rounded border border-white/20" />
 
-        <div class="flex flex-col sm:flex-row gap-4 mt-6">
+              <!-- Dito visually mag-ii-stack ang mga pangalan ng larawan na napili na nila -->
+              <div id="file-list" class="mt-2 text-sm text-gray-300 space-y-1"></div>
+            </div>
 
-          <button type="button" id="btn-send-messenger"
-            class="btn-block flex-1 text-center font-bold text-white bg-[#0084ff] hover:bg-[#0072dd] p-3 rounded-md transition-all">
-            💬 Submit via Messenger
-          </button>
+            <div class="flex flex-col sm:flex-row gap-4 mt-6">
 
-          <button type="button" id="btn-send-sms"
-            class="btn-block flex-1 text-center font-bold text-white bg-[#25d366] hover:bg-[#20ba5a] p-3 rounded-md transition-all">
-            📱 Submit via SMS / Text
-          </button>
-          <button type="button" id="btn-send-email" class="btn-block flex-1 text-center font-bold text-white bg-[#bc9c57] hover:bg-[#a38446] p-4 rounded-md transition-all shadow-md">
+              <button type="button" id="btn-send-messenger"
+                class="btn-block flex-1 text-center font-bold text-white bg-[#0084ff] hover:bg-[#0072dd] p-3 rounded-md transition-all">
+                💬 Submit via Messenger
+              </button>
+
+              <button type="button" id="btn-send-sms"
+                class="btn-block flex-1 text-center font-bold text-white bg-[#25d366] hover:bg-[#20ba5a] p-3 rounded-md transition-all">
+                📱 Submit via SMS / Text
+              </button>
+              <button type="button" id="btn-send-email"
+                class="btn-block flex-1 text-center font-bold text-white bg-[#bc9c57] hover:bg-[#a38446] p-4 rounded-md transition-all shadow-md">
                 ✉️ Submit via Email
-          </button>
+              </button>
 
+            </div>
+
+          </form>
         </div>
-
-        </form>
-      </div>
       </div>
     </section>
 
@@ -1275,6 +1357,7 @@
     </a>
   </div>
 
+
   <script src="js/script.js"></script>
 
   <!-- EmailJS Core browser SDK Integration -->
@@ -1286,6 +1369,11 @@
         publicKey: "Je1yjD1ukaLzefaVU",
       });
     })();
+  </script>
+
+
+
+
   </script>
 </body>
 

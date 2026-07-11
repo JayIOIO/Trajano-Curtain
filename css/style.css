@@ -553,12 +553,19 @@ select:focus-visible {
 /* ==========================================================================
    SERVICE CARDS
    ========================================================================== */
+/* ==========================================================================
+   Universal Card & Aspect Ratio Lock (No Media Queries Needed)
+   ========================================================================== */
 .service-card {
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--hairline);
   transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+  
+  /* Proteksyon para sa grid system */
+  width: 100% !important;
+  min-width: 0 !important; 
 }
 
 .service-card:hover {
@@ -566,10 +573,13 @@ select:focus-visible {
   box-shadow: 0 26px 50px -24px rgba(33, 29, 24, .28);
 }
 
-.service-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+/* LOCK RATIO: Tinanggal ang height: 220px para sumunod sa 3 columns kahit sa mobile */
+.service-card img,
+.service-card video {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 800 / 560 !important; /* Laging nakakandado sa 10:7 landscape ratio ng image mo */
+  object-fit: cover !important;
   transition: transform .6s var(--ease);
 }
 
@@ -577,34 +587,30 @@ select:focus-visible {
   transform: scale(1.06);
 }
 
+/* automatic scaling ng text para sa maliliit na screen */
 .service-body {
-  padding: 26px 26px 28px;
+  padding: 5% !important; /* Gumamit ng percentage para kusa siyang lumiliit kapag sumisikip ang card */
 }
 
-.service-body h3 {
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 8px;
+@media screen and (max-width: 600px) {
+  .service-card {
+    border-radius: 10px;
+  }
+  .service-body h3 {
+    font-size: 0.85rem !important;
+    margin-bottom: 4px;
+  }
+  .service-body p {
+    font-size: 0.65rem !important;
+    line-height: 1.3;
+  }
+  .service-link {
+    font-size: 0.6rem !important;
+    margin-top: 6px;
+  }
 }
 
-.service-body p {
-  font-size: .93rem;
-  color: rgba(33, 29, 24, .65);
-  line-height: 1.6;
-}
 
-.service-link {
-  display: inline-block;
-  margin-top: 14px;
-  font-size: .85rem;
-  font-weight: 700;
-  color: var(--emerald-deep);
-  letter-spacing: .02em;
-}
-
-.service-link:hover {
-  color: var(--gold);
-}
 
 /* ==========================================================================
    PORTFOLIO / MASONRY / FILTER
