@@ -605,6 +605,12 @@ Please note that even you do not have exact sizes, you can provide approximate d
             }
         });
     }
+    
+    const honeyField = document.getElementById('q-honey').value;
+if (honeyField !== "") {
+    console.log("Spam bot detected!");
+    return false; // Hihinto rito, hindi itutuloy ang pag-send
+}
 });
 
 
@@ -651,3 +657,44 @@ document.addEventListener('keydown', function(e) {
 
 
 
+
+// ==========================================================
+// DEVELOPER TOOLS & ANTI-INSPECT SECURITY BARRIER
+// ==========================================================
+(function() {
+  function protectSite(max) {
+    function debuggerLoop(i) {
+      // Trigger ng automatic break/freeze kapag bukas ang DevTools Console
+      if (("" + i / i).length !== 1 || i % 20 === 0) {
+        (function() {}.constructor("debugger")());
+      } else {
+        (function() {}.constructor("debugger")());
+      }
+      debuggerLoop(++i);
+    }
+    try {
+      debuggerLoop(0);
+    } catch (e) {
+      // Patuloy na susubukan tuwing may magtatangkang mag-inspect
+      setTimeout(function() { protectSite(max); }, 100);
+    }
+  }
+  protectSite(0);
+})();
+
+// I-disable ang Right-Click (Context Menu)
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+// I-disable ang Key Shortcuts na nagbubukas ng DevTools at View Source
+document.addEventListener('keydown', function(e) {
+  if (
+    e.key === 'F12' || 
+    (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || 
+    (e.ctrlKey && e.key === 'u')
+  ) {
+    e.preventDefault();
+    return false;
+  }
+});
