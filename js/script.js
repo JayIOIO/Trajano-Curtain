@@ -512,7 +512,9 @@ Preferred Date: ${val('q-schedule') || 'N/A'}
 Notes: ${val('q-message') || 'None'}
 
 Images links (uploaded):
-${linksText}`;
+${linksText}
+
+Please note that even you do not have exact sizes, you can provide approximate dimensions or photos of your windows. Our team will assist you in determining the best solution for your needs. Thank you!`;
     }
 
     // --- SMART MOBILE-FRIENDLY BUTTON ACTIONS ---
@@ -586,7 +588,7 @@ ${linksText}`;
             const linksText = await uploadAllImages();
             const message = generateMessageText(linksText);
             
-            const myEmail = "IYONG_EMAIL@gmail.com"; // <-- PALITAN MO NG EMAIL MO
+            const myEmail = "natetrajano07@gmail.com"; // <-- PALITAN MO NG EMAIL MO
             const subject = `[New Estimate Request] ${val('q-name') || 'Client'}`;
             
             emailBtn.textContent = originalText;
